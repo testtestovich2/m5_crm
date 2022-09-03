@@ -17,6 +17,7 @@
 
     <title>Modul05 Lesson02</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
   </head>
 
   <body>
@@ -38,7 +39,7 @@
               <button class="list-product__table-filter">
                 Фильтр
               </button>
-
+  
               <label class="list-product__table-search">
                 <input class="list-product__table-input" type="search" placeholder="Поиск по наименованию и категории">
               </label>
@@ -49,7 +50,7 @@
             </button>
           </div>
 
-          <table class="list-product__table">
+          <table class="list-product__table">  
             <thead class="list-product__table-head">
               <tr>
                 <th class="list-product__table-td">ID</th>
@@ -62,7 +63,7 @@
                 <th class="list-product__table-td"></th>
               </tr>
             </thead>
-
+        
             <tbody>
               <tr class="list-product__table-tr">
                 <td class="list-product__table-td">246016548</td>
@@ -90,7 +91,7 @@
                   <button class="list-product__table-button list-product__button-img" aria-label="image"></button>
                   <button class="list-product__table-button list-product__button-edit" aria-label="edit"></button>
                   <button class="list-product__table-button list-product__button-delete" aria-label="delete"></button>
-                </td>
+                </td> 
               </tr>
               <tr class="list-product__table-tr">
                 <td class="list-product__table-td">246016548</td>
@@ -203,11 +204,11 @@
                   <button class="list-product__table-button list-product__button-edit" aria-label="edit"></button>
                   <button class="list-product__table-button list-product__button-delete" aria-label="delete"></button>
                 </td>
-              </tr>
+              </tr>                                                                                                                
             </tbody>
           </table>
 
-          <div class="list-product__table-foot">
+          <div class="list-product__table-foot">         
               <div class="list-product__table-footblock">
                 <div>
                   <span>Показывать на странице:</span>
@@ -217,18 +218,18 @@
                     <option>100</option>
                   </select>
                 </div>
-
+  
                 <div class="list-product__table-content">
                   <div>1-10 of</div>
 
                   <div>276</div>
                 </div>
-
+  
                 <button class="list-product__table-arrow list-product__table-left" aria-label="left"></button>
-
+  
                 <button class="list-product__table-arrow list-product__table-right" aria-label="right"></button>
               </div>
-            </div>
+            </div>         
         </div>
       </div>
     </section>
@@ -238,7 +239,11 @@
         <div class="add-product__header">
           <h2 class="add-product__title">Добавить товар</h2>
 
-          <div class="add-product__id">id: 201910241</div>
+          <div class="add-product__id-block">
+            <div class="add-product__id">id: 201910241</div>
+
+            <button class="add-product__id-button" aria-label="Редактировать номер товара"></button>
+          </div>
         </div>
 
         <form id="form" class="add-product__form">
@@ -327,7 +332,7 @@
             </label>
 
             <div class="add-product__warning">
-              Изображение не должно
+              Изображение не должно 
               превышать размер 1 Мб
             </div>
           </fieldset>
@@ -338,7 +343,7 @@
             <span class="card-sum__text">Итоговая стоимость:</span>
             <span class="card-sum__price">$ 900.00</span>
           </div>
-
+  
           <button form="form" class="add-product__button" type="submit">
             Добавить товар
           </button>
@@ -347,7 +352,7 @@
         <button class="add-product__button-close" aria-label="close">
         </button>
 
-        <div class="add-product__error">
+        <div class="add-product__error"> 
           <button class="add-product__button-close add-product__button-close_top_max" aria-label="close">
           </button>
 
