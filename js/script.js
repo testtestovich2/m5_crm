@@ -1,8 +1,11 @@
 "use strict";
 
+const addProduct = document.querySelector('.list-product__table-add');
+
 const modalTitle = document.querySelector('.add-product__title');
 const productId = document.querySelector('.add-product__id');
 const buttonId = document.querySelector('.add-product__id-button');
+const formOverlay = document.querySelector('.overlay');
 const productForm = document.querySelector('.add-product__form');
 
 const checkbox = document.querySelector(".add-product__checkbox");
@@ -78,8 +81,27 @@ const data = [
   }
 ]
 const createRow = ({id, title, category, units, count, price}) => {
-  const tr = document.createElement('tr');
-  tr.classList.add('list-product__table-tr');
+  
+  // const tr = document.createElement('tr');
+  // tr.classList.add('list-product__table-tr');
+  // const tdId = document.createElement('td');
+  // tdId.textContent = id;
+  // const tdTitle = document.createElement('td');
+  // tdTitle.textContent = title;
+  // const tdCategory = document.createElement('td');
+  // tdCategory.textContent = category;
+  // const tdUnits = document.createElement('td');
+  // tdUnits.textContent = units;
+  // const tdCount = document.createElement('td');
+  // tdCount.textContent = count;
+  // const tdPrice = document.createElement('td');
+  // tdPrice.textContent = price;
+
+  // tr.append(tdId, tdTitle, tdCategory, tdUnits, tdCount, tdPrice);
+  // return tr;
+
+  const tr = document.createElement('tr'); 
+  tr.classList.add('list-product__table-tr'); 
   tr.insertAdjacentHTML('afterbegin', `
     <td class=list-product__table-td>${id}</td>
     <td class=list-product__table-td>${title}</td>
@@ -92,7 +114,7 @@ const createRow = ({id, title, category, units, count, price}) => {
       <button class='list-product__table-button list-product__button-img' aria-label="image"></button>
       <button class='list-product__table-button list-product__button-edit' aria-label="edit"></button>
       <button class='list-product__table-button list-product__button-delete' aria-label="delete"></button>
-    </td>
+    </td> 
   `);
   return tr;
 };
@@ -100,7 +122,64 @@ const createRow = ({id, title, category, units, count, price}) => {
 const renderGoods = (elem, data) => {
   const allRow = data.map(createRow);
 
-  elem.append(...allRow);
+  elem.append(...allRow); 
 };
 
 renderGoods(tableBody, data);
+
+addProduct.addEventListener('click', () => {
+  formOverlay.classList.add('overlay_disabled');
+});
+
+const handleForm = () => {
+  formOverlay.classList.toggle("overlay_disabled");
+};
+const toggleForm = (e) => {
+  if (formOverlay.classList.contains("overlay_disabled")) {
+    if (!e.target.closest(".add-product")) {
+      handleForm();
+    } else if (e.target.classList.contains("add-product__button-close")) {
+      e.preventDefault();
+      handleForm();
+    }
+  } else if (e.target.closest(".add-product")) {
+    handleForm();
+  }
+};
+formOverlay.addEventListener("click", toggleForm);
+
+// const myData = {
+//   productName: "",
+//   productCount: "",
+//   productCategory: "",
+//   productPrice: "",
+
+//   check: function (v) {
+//     let e = +prompt(v);
+//     if (!Number.isNaN(e)) {
+//       return e;
+//     } else {
+//       alert("Вы ввели некорректные данные!");
+//       return this.check(v);
+//     }
+//   },
+
+//   question: function () {
+//     this.productName = prompt("Наименование товара");
+//     this.productCount = this.check("Количество товара");
+//     this.productCategory = prompt("Категория товара");
+//     this.productPrice = this.check("Цена товара");
+
+//     console.log(`Наименование товара: ${this.productName}`);
+//     console.log(`Количество товара: ${this.productCount}`);
+//     console.log(`Категория товара: ${this.productCategory}`);
+//     console.log(`Цена товара: ${this.productPrice}`);
+//     console.log(
+//       `На складе ${this.productCount} единицы товара "${
+//         this.productName
+//       }" на сумму ${this.productPrice * this.productCount} деревянных`
+//     );
+//   },
+// };
+
+// myData.question();
